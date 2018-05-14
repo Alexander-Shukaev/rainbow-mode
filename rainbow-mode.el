@@ -1101,7 +1101,7 @@ If the percentage value is above 100, it's converted to 100."
                              0
                              (if xterm-color? 'face 'font-lock-face)
                              applied)))
-        (unless (listp (car face-property))
+        (unless (listp (or (car-safe face-property) face-property))
           (setq face-property (list face-property)))
         (setq color (funcall (if xterm-color? 'cadr 'cdr)
                              (or (assq (if xterm-color?
